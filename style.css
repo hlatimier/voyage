@@ -1,281 +1,243 @@
-
-<style>
-
-/*==================================================
-                RESET GENERAL
-====================================================*/
-
-/*
-Le navigateur ajoute des marges par défaut.
-On les supprime pour repartir sur une base propre.
-*/
+/* RESET */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-/*
-Variables CSS
-Elles permettent de changer facilement les couleurs.
-*/
-
-:root{
-
-    --vert:#2bb673;
-    --vert-fonce:#148a55;
-    --gris:#f4f4f4;
-    --texte:#333;
-    --ombre:0 8px 25px rgba(0,0,0,.10);
-
-}
 
 body{
 
-    font-family:Arial, Helvetica, sans-serif;
-    background:var(--gris);
-    color:var(--texte);
+    background:#f5f5f5;
+    color:#333;
 
 }
 
-/*==================================================
-                HEADER
-====================================================*/
 
-/*
-Le header contient :
 
-- le logo
-- le menu
-- le bouton connexion
-
-On utilise Flexbox.
-*/
+/* HEADER */
 
 header{
 
     background:white;
+    padding:20px 8%;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
-    padding:20px 50px;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    box-shadow:0 2px 8px #ddd;
 
 }
+
 
 .logo{
 
-    font-size:30px;
-
+    font-size:26px;
     font-weight:bold;
-
-    color:var(--vert);
-
-}
-
-nav ul{
-
-    display:flex;
-
-    list-style:none;
-
-    gap:35px;
+    color:#00aa6c;
 
 }
+
+
 
 nav a{
 
     text-decoration:none;
+    color:#333;
 
-    color:#444;
+    margin-left:25px;
 
     font-weight:bold;
 
 }
 
+
 nav a:hover{
 
-    color:var(--vert);
+    color:#00aa6c;
 
 }
 
-.btn{
 
-    background:var(--vert);
 
-    color:white;
 
-    padding:12px 22px;
-
-    border-radius:30px;
-
-    text-decoration:none;
-
-}
-
-/*==================================================
-                HERO
-====================================================*/
-
-/*
-Le Hero est la première grande section.
-
-Elle attire l'oeil.
-
-On utilise un dégradé.
-*/
+/* HERO */
 
 .hero{
 
-    background:linear-gradient(135deg,#2bb673,#7de0a9);
+    height:400px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+    ),
+    url("https://picsum.photos/1600/700?travel");
+
+
+    background-size:cover;
+    background-position:center;
+
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
 
     color:white;
-
     text-align:center;
 
-    padding:90px 20px;
-
 }
+
+
 
 .hero h1{
 
-    font-size:55px;
-
-}
-
-.hero p{
-
-    margin-top:20px;
-
-    font-size:22px;
-
-}
-
-/*==================================================
-            BARRE DE RECHERCHE
-====================================================*/
-
-/*
-On place les éléments avec Grid.
-*/
-
-.search{
-
-    max-width:1100px;
-
-    margin:auto;
-
-    background:white;
-
-    margin-top:-35px;
-
-    display:grid;
-
-    grid-template-columns:2fr 1fr 1fr 180px;
-
-    gap:15px;
-
-    padding:25px;
-
-    border-radius:15px;
-
-    box-shadow:var(--ombre);
-
-}
-
-.search input,
-.search select{
-
-    padding:15px;
-
-    border:1px solid #ddd;
-
-    border-radius:10px;
-
-    font-size:16px;
-
-}
-
-.search button{
-
-    border:none;
-
-    background:var(--vert);
-
-    color:white;
-
-    font-size:17px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-}
-
-/*==================================================
-            SECTION DESTINATIONS
-====================================================*/
-
-.container{
-
-    width:1200px;
-
-    max-width:95%;
-
-    margin:70px auto;
-
-}
-
-.container h2{
+    font-size:45px;
 
     margin-bottom:30px;
 
-    font-size:36px;
+}
+
+
+
+
+.search-box{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    display:flex;
+
+    gap:10px;
 
 }
 
-/*
-La grille responsive.
 
-auto-fit crée automatiquement
-autant de colonnes que possible.
-*/
+
+.search-box input{
+
+    padding:15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+}
+
+
+
+button{
+
+    background:#00aa6c;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 25px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+
+button:hover{
+
+    background:#008f59;
+
+}
+
+
+
+
+
+/* DESTINATIONS */
+
+
+.destination,
+.hotels,
+.reviews{
+
+    padding:50px 8%;
+
+}
+
+
+
+h2{
+
+    margin-bottom:30px;
+
+    font-size:30px;
+
+}
+
+
+
 
 .cards{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-    gap:30px;
+    gap:25px;
 
 }
+
+
+
+/* CARTES CLIQUABLES */
+
 
 .card{
 
     background:white;
 
+    width:33%;
+
     border-radius:15px;
 
     overflow:hidden;
 
-    box-shadow:var(--ombre);
+    box-shadow:0 3px 12px #ddd;
 
-    transition:.4s;
+
+    text-decoration:none;
+
+    color:#333;
+
+    display:block;
+
+    cursor:pointer;
+
+
+    transition:0.3s;
 
 }
+
+
 
 .card:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-5px);
+
+    box-shadow:0 8px 20px #ccc;
 
 }
+
+
 
 .card img{
 
@@ -287,132 +249,228 @@ autant de colonnes que possible.
 
 }
 
-.card-content{
 
-    padding:20px;
-
-}
 
 .card h3{
 
+    padding:15px 20px 5px;
+
+    font-size:24px;
+
+}
+
+
+
+.card p{
+
+    padding:5px 20px 15px;
+
+}
+
+
+
+.stars{
+
+    color:#00aa6c;
+
+    font-size:20px;
+
+}
+
+
+
+
+
+/* HOTELS */
+
+
+.hotel{
+
+    background:white;
+
+    display:flex;
+
+    gap:25px;
+
+    padding:20px;
+
+    margin-bottom:25px;
+
+
+    border-radius:15px;
+
+    box-shadow:0 3px 10px #ddd;
+
+}
+
+
+
+.hotel img{
+
+    width:300px;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+
+
+.hotel h3{
+
+    font-size:25px;
+
     margin-bottom:10px;
 
 }
+
+
 
 .rating{
 
-    color:#ffb400;
-
-    margin-bottom:10px;
-
-}
-
-.price{
-
-    color:var(--vert);
-
-    font-size:24px;
+    color:#00aa6c;
 
     font-weight:bold;
 
 }
 
-/*==================================================
-                AVIS
-====================================================*/
 
-/*
-Chaque avis est placé dans une carte.
-*/
 
-.reviews{
+.price{
 
-    display:grid;
+    font-size:20px;
 
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    font-weight:bold;
 
-    gap:25px;
+    margin:15px 0;
 
 }
+
+
+
+
+
+/* AVIS */
+
 
 .review{
 
     background:white;
 
-    padding:30px;
+    padding:25px;
+
+    margin-bottom:15px;
 
     border-radius:15px;
 
-    box-shadow:var(--ombre);
+    box-shadow:0 3px 10px #ddd;
 
 }
 
-.review h4{
+
+
+.review h3{
 
     margin-bottom:10px;
 
 }
 
-/*==================================================
-            FOOTER
-====================================================*/
+
+
+
+/* FOOTER */
+
 
 footer{
 
-    background:#202020;
+    background:#222;
 
     color:white;
 
     text-align:center;
 
-    padding:40px;
-
-    margin-top:80px;
+    padding:30px;
 
 }
 
-footer p{
 
-    opacity:.8;
 
-}
 
-/*
-MEDIA QUERY
 
-Quand l'écran est petit,
-la barre de recherche devient verticale.
-*/
+/* RESPONSIVE MOBILE */
+
 
 @media(max-width:900px){
 
-.search{
-
-grid-template-columns:1fr;
-
-}
 
 header{
 
-flex-direction:column;
+    flex-direction:column;
 
-gap:20px;
+    gap:20px;
+
+}
+
+
+nav a{
+
+    margin:10px;
 
 }
 
-nav ul{
 
-flex-wrap:wrap;
-justify-content:center;
-
-}
 
 .hero h1{
 
-font-size:35px;
+    font-size:32px;
 
 }
 
+
+
+.search-box{
+
+    flex-direction:column;
+
+    width:90%;
+
 }
 
-</style>
+
+
+.cards{
+
+    flex-direction:column;
+
+}
+
+
+
+.card{
+
+    width:100%;
+
+}
+
+
+
+.hotel{
+
+    flex-direction:column;
+
+}
+
+
+
+.hotel img{
+
+    width:100%;
+
+}
+
+
+
+}
