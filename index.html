@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Voyage Explorer</title>
@@ -38,29 +39,51 @@
 
 
 
+<!-- BANNIERE -->
+
 <section class="hero">
+
 
 <h1>
 Trouvez votre prochaine aventure
 </h1>
 
 
+
 <div class="search-box">
 
-<input type="text" placeholder="Où voulez-vous aller ?">
+
+<input 
+type="text" 
+id="destinationSearch"
+placeholder="Où voulez-vous aller ?">
+
+
 
 <input type="date">
 
-<button>
+
+
+<button onclick="rechercherDestination()">
+
 Rechercher
+
 </button>
 
+
+
 </div>
+
 
 </section>
 
 
 
+
+
+
+
+<!-- DESTINATIONS -->
 
 
 <section class="destination">
@@ -76,7 +99,10 @@ Destinations populaires
 
 
 
-<!-- CARTE PARIS CLIQUABLE -->
+
+
+<!-- PARIS -->
+
 
 <a href="paris.html" class="card">
 
@@ -96,7 +122,7 @@ Paris 🇫🇷
 
 <p>
 Découvrez la ville lumière,
-la Tour Eiffel, le Louvre et Montmartre.
+la Tour Eiffel et le Louvre.
 </p>
 
 
@@ -106,7 +132,8 @@ la Tour Eiffel, le Louvre et Montmartre.
 
 
 
-<!-- CARTE ROME CLIQUABLE -->
+
+<!-- ROME -->
 
 
 <a href="rome.html" class="card">
@@ -138,7 +165,8 @@ le Vatican et la cuisine italienne.
 
 
 
-<!-- AUTRE DESTINATION -->
+
+<!-- BRETAGNE -->
 
 
 <div class="card">
@@ -166,6 +194,7 @@ Plages, patrimoine et paysages marins.
 
 
 
+
 </div>
 
 
@@ -175,6 +204,10 @@ Plages, patrimoine et paysages marins.
 
 
 
+
+
+
+<!-- HOTELS -->
 
 
 <section class="hotels">
@@ -194,6 +227,7 @@ Hébergements recommandés
 
 
 <div>
+
 
 <h3>
 Hôtel Océan Bleu
@@ -225,6 +259,8 @@ Voir les détails
 
 
 </div>
+
+
 
 
 
@@ -279,12 +315,16 @@ Voir les détails
 
 
 
+<!-- AVIS -->
+
+
 <section class="reviews">
 
 
 <h2>
 Avis des voyageurs
 </h2>
+
 
 
 
@@ -308,6 +348,7 @@ je recommande vivement !"
 
 
 </div>
+
 
 
 
@@ -350,6 +391,61 @@ Marc
 </p>
 
 </footer>
+
+
+
+
+
+
+
+<script>
+
+
+function rechercherDestination(){
+
+
+let destination = document
+.getElementById("destinationSearch")
+.value
+.toLowerCase();
+
+
+
+if(destination.includes("paris")){
+
+
+window.location.href="paris.html";
+
+
+}
+
+
+
+else if(destination.includes("rome")){
+
+
+window.location.href="rome.html";
+
+
+}
+
+
+
+else{
+
+
+alert("Destination non disponible. Essayez Paris ou Rome.");
+
+
+}
+
+
+}
+
+
+
+</script>
+
 
 
 
