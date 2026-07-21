@@ -1,455 +1,84 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Voyage Explorer</title>
-
-<link rel="stylesheet" href="style.css">
-
-</head>
-
-
-<body>
-
-
-<header>
-
-<div class="logo">
-🌍 Voyage Explorer
-</div>
-
-
-<nav>
-
-<a href="index.html">Accueil</a>
-<a href="#">Hôtels</a>
-<a href="#">Restaurants</a>
-<a href="#">Activités</a>
-<a href="#">Avis</a>
-
-</nav>
-
-</header>
-
-
-
-
-<!-- BANNIERE -->
-
-<section class="hero">
-
-
-<h1>
-Trouvez votre prochaine aventure
-</h1>
-
-
-
-<div class="search-box">
-
-
-<input 
-type="text" 
-id="destinationSearch"
-placeholder="Où voulez-vous aller ?">
-
-
-
-<input type="date">
-
-
-
-<button onclick="rechercherDestination()">
-
-Rechercher
-
-</button>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- DESTINATIONS -->
-
-
-<section class="destination">
-
-
-<h2>
-Destinations populaires
-</h2>
-
-
-
-<div class="cards">
-
-
-
-
-
-<!-- PARIS -->
-
-
-<a href="paris.html" class="card">
-
-
-<img src="https://picsum.photos/400/250?random=1" alt="Paris">
-
-
-<h3>
-Paris 🇫🇷
-</h3>
-
-
-<p class="stars">
-★★★★★
-</p>
-
-
-<p>
-Découvrez la ville lumière,
-la Tour Eiffel et le Louvre.
-</p>
-
-
-</a>
-
-
-
-
-
-
-<!-- ROME -->
-
-
-<a href="rome.html" class="card">
-
-
-<img src="https://picsum.photos/400/250?random=2" alt="Rome">
-
-
-<h3>
-Rome 🇮🇹
-</h3>
-
-
-<p class="stars">
-★★★★★
-</p>
-
-
-<p>
-Découvrez le Colisée,
-le Vatican et la cuisine italienne.
-</p>
-
-
-</a>
-
-
-
-
-
-
-
-<!-- BRETAGNE -->
-
-
-<div class="card">
-
-
-<img src="https://picsum.photos/400/250?random=3" alt="Bretagne">
-
-
-<h3>
-Bretagne 🇫🇷
-</h3>
-
-
-<p class="stars">
-★★★★☆
-</p>
-
-
-<p>
-Plages, patrimoine et paysages marins.
-</p>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- HOTELS -->
-
-
 <section class="hotels">
 
+    <h2>
+        Hébergements recommandés
+    </h2>
 
-<h2>
-Hébergements recommandés
-</h2>
+    <!-- Hôtel Océan Bleu -->
 
+    <div class="hotel">
 
+        <img src="https://picsum.photos/300/200?hotel" alt="Hôtel Océan Bleu">
 
+        <div>
 
-<div class="hotel">
+            <h3>
+                Hôtel Océan Bleu
+            </h3>
 
+            <p class="rating">
+                ⭐⭐⭐⭐⭐ 4.8 / 5
+            </p>
 
-<img src="https://picsum.photos/300/200?random=4">
+            <p>
+                📍 <strong>Paris, France 🇫🇷</strong>
+            </p>
 
+            <p>
+                Situé au cœur de Paris, l'Hôtel Océan Bleu offre des chambres modernes,
+                un petit-déjeuner inclus et un accès rapide à la Tour Eiffel, au Louvre
+                et aux Champs-Élysées.
+            </p>
 
-<div>
+            <p class="price">
+                À partir de <strong>120 €</strong> / nuit
+            </p>
 
+            <button>
+                Voir les détails
+            </button>
 
-<h3>
-Hôtel Océan Bleu
-</h3>
+        </div>
 
+    </div>
 
-<p class="rating">
-4.8 / 5 ⭐
-</p>
+    <!-- Maison du Voyageur -->
 
+    <div class="hotel">
 
-<p>
-Magnifique hôtel proche de la mer
-avec vue panoramique.
-</p>
+        <img src="https://picsum.photos/300/200?room" alt="Maison du Voyageur">
 
+        <div>
 
-<p class="price">
-À partir de 120 € / nuit
-</p>
+            <h3>
+                Maison du Voyageur
+            </h3>
 
+            <p class="rating">
+                ⭐⭐⭐⭐☆ 4.5 / 5
+            </p>
 
-<button>
-Voir les détails
-</button>
+            <p>
+                📍 Rome, Italie 🇮🇹
+            </p>
 
+            <p>
+                Chambre confortable située dans le centre historique de Rome,
+                à quelques minutes du Colisée et de la Fontaine de Trevi.
+            </p>
 
-</div>
+            <p class="price">
+                À partir de <strong>80 €</strong> / nuit
+            </p>
 
+            <button>
+                Voir les détails
+            </button>
 
-</div>
+        </div>
 
-
-
-
-
-
-
-<div class="hotel">
-
-
-<img src="https://picsum.photos/300/200?random=5">
-
-
-<div>
-
-
-<h3>
-Maison du Voyageur
-</h3>
-
-
-<p class="rating">
-4.5 / 5 ⭐
-</p>
-
-
-<p>
-Chambre confortable au centre-ville.
-</p>
-
-
-<p class="price">
-À partir de 80 € / nuit
-</p>
-
-
-<button>
-Voir les détails
-</button>
-
-
-</div>
-
-
-</div>
-
-
+    </div>
 
 </section>
-
-
-
-
-
-
-
-<!-- AVIS -->
-
-
-<section class="reviews">
-
-
-<h2>
-Avis des voyageurs
-</h2>
-
-
-
-
-<div class="review">
-
-
-<h3>
-Julie
-</h3>
-
-
-<p>
-⭐⭐⭐⭐⭐
-</p>
-
-
-<p>
-"Une expérience incroyable,
-je recommande vivement !"
-</p>
-
-
-</div>
-
-
-
-
-
-
-<div class="review">
-
-
-<h3>
-Marc
-</h3>
-
-
-<p>
-⭐⭐⭐⭐
-</p>
-
-
-<p>
-"Très beau séjour."
-</p>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-<footer>
-
-<p>
-© 2026 Voyage Explorer
-</p>
-
-</footer>
-
-
-
-
-
-
-
-<script>
-
-
-function rechercherDestination(){
-
-
-let destination = document
-.getElementById("destinationSearch")
-.value
-.toLowerCase();
-
-
-
-if(destination.includes("paris")){
-
-
-window.location.href="paris.html";
-
-
-}
-
-
-
-else if(destination.includes("rome")){
-
-
-window.location.href="rome.html";
-
-
-}
-
-
-
-else{
-
-
-alert("Destination non disponible. Essayez Paris ou Rome.");
-
-
-}
-
-
-}
-
-
-
-</script>
-
-
-
-
-
-</body>
 
 </html>
