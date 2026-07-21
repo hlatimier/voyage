@@ -40,6 +40,7 @@
 
 
 
+
 <!-- HERO -->
 
 <section class="hero">
@@ -51,22 +52,26 @@ Trouvez votre prochaine aventure
 
 
 
-<form action="resultats.html" method="GET" class="search-box">
+
+<form class="search-box" onsubmit="rechercherDestination(event)">
 
 
 <input 
 type="text"
-name="destination"
+id="destinationSearch"
 placeholder="Où voulez-vous aller ?"
 required>
+
 
 
 <input type="date">
 
 
+
 <button type="submit">
 Rechercher
 </button>
+
 
 
 </form>
@@ -79,7 +84,11 @@ Rechercher
 
 
 
+
+
+
 <!-- DESTINATIONS -->
+
 
 <section class="destination">
 
@@ -90,30 +99,42 @@ Destinations populaires
 
 
 
+
 <div class="cards">
+
+
 
 
 
 <!-- PARIS -->
 
+
 <a href="paris.html" class="card">
 
+
 <img src="https://picsum.photos/400/250?random=1" alt="Paris">
+
 
 <h3>
 Paris 🇫🇷
 </h3>
 
+
 <p class="stars">
 ★★★★★
 </p>
+
 
 <p>
 Découvrez la ville lumière,
 la Tour Eiffel et le Louvre.
 </p>
 
+
 </a>
+
+
+
 
 
 
@@ -121,24 +142,32 @@ la Tour Eiffel et le Louvre.
 
 <!-- ROME -->
 
+
 <a href="rome.html" class="card">
 
+
 <img src="https://picsum.photos/400/250?random=2" alt="Rome">
+
 
 <h3>
 Rome 🇮🇹
 </h3>
 
+
 <p class="stars">
 ★★★★★
 </p>
+
 
 <p>
 Découvrez le Colisée,
 le Vatican et la cuisine italienne.
 </p>
 
+
 </a>
+
+
 
 
 
@@ -147,21 +176,27 @@ le Vatican et la cuisine italienne.
 
 <!-- BRETAGNE -->
 
+
 <div class="card">
 
+
 <img src="https://picsum.photos/400/250?random=3" alt="Bretagne">
+
 
 <h3>
 Bretagne 🇫🇷
 </h3>
 
+
 <p class="stars">
 ★★★★☆
 </p>
 
+
 <p>
 Plages, patrimoine et paysages marins.
 </p>
+
 
 </div>
 
@@ -171,6 +206,7 @@ Plages, patrimoine et paysages marins.
 
 
 </section>
+
 
 
 
@@ -192,13 +228,14 @@ Hébergements recommandés
 
 
 
-<!-- PARIS -->
+
+<!-- HOTEL PARIS -->
 
 
 <div class="hotel">
 
 
-<img src="https://picsum.photos/300/200?hotel" alt="Hôtel Océan Bleu">
+<img src="https://picsum.photos/300/200?random=4" alt="Hôtel Océan Bleu">
 
 
 <div>
@@ -248,13 +285,14 @@ Voir les détails
 
 
 
-<!-- ROME -->
+
+<!-- HOTEL ROME -->
 
 
 <div class="hotel">
 
 
-<img src="https://picsum.photos/300/200?room" alt="Casa del Viaggiatore">
+<img src="https://picsum.photos/300/200?random=5" alt="Casa del Viaggiatore">
 
 
 <div>
@@ -276,9 +314,9 @@ Casa del Viaggiatore
 
 
 <p>
-Situé dans le centre historique de Rome,
+Située dans le centre historique de Rome,
 Casa del Viaggiatore propose des chambres confortables,
-un petit-déjeuner italien et un accès facile au Colisée,
+un petit-déjeuner italien et un accès rapide au Colisée,
 au Vatican et à la Fontaine de Trevi.
 </p>
 
@@ -322,20 +360,25 @@ Avis des voyageurs
 
 
 
+
 <div class="review">
+
 
 <h3>
 Julie
 </h3>
 
+
 <p>
 ⭐⭐⭐⭐⭐
 </p>
+
 
 <p>
 "Une expérience incroyable,
 je recommande vivement !"
 </p>
+
 
 </div>
 
@@ -343,20 +386,24 @@ je recommande vivement !"
 
 
 
+
 <div class="review">
+
 
 <h3>
 Marc
 </h3>
 
+
 <p>
 ⭐⭐⭐⭐
 </p>
 
+
 <p>
-"Très beau séjour,
-personnel sympathique."
+"Très beau séjour."
 </p>
+
 
 </div>
 
@@ -370,13 +417,81 @@ personnel sympathique."
 
 
 
+
 <footer>
 
 <p>
-© 2026 Voyage Explorer - Tous droits réservés
+© 2026 Voyage Explorer
 </p>
 
 </footer>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+function rechercherDestination(event){
+
+
+event.preventDefault();
+
+
+
+let destination = document
+.getElementById("destinationSearch")
+.value
+.toLowerCase()
+.trim();
+
+
+
+
+
+if(destination.includes("paris")){
+
+
+window.location.href="paris.html";
+
+
+}
+
+
+
+else if(destination.includes("rome")){
+
+
+window.location.href="rome.html";
+
+
+}
+
+
+
+else{
+
+
+window.location.href="resultats.html?destination=" + destination;
+
+
+}
+
+
+
+}
+
+
+
+</script>
+
+
+
 
 
 
