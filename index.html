@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Voyage Explorer</title>
+<title>Résultats de recherche - Voyage Explorer</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -29,10 +29,10 @@
 <a href="index.html">Accueil</a>
 <a href="#">Hôtels</a>
 <a href="#">Restaurants</a>
-<a href="#">Activités</a>
 <a href="#">Avis</a>
 
 </nav>
+
 
 </header>
 
@@ -40,241 +40,22 @@
 
 
 
-<section class="hero">
+
+<section class="results">
 
 
 <h1>
-Trouvez votre prochaine aventure
+Résultats pour :
+<span id="villeRecherche"></span>
 </h1>
 
 
 
-
-<form class="search-box" onsubmit="rechercherDestination(event)">
-
-
-<input 
-type="text"
-id="destinationSearch"
-placeholder="Où voulez-vous aller ?"
-required>
-
-
-<input type="date">
-
-
-<button type="submit">
-Rechercher
-</button>
-
-
-</form>
-
-
-</section>
-
-
-
-
-
-
-
-<section class="destination">
-
-
-<h2>
-Destinations populaires
-</h2>
-
-
-
-<div class="cards">
-
-
-
-<a href="paris.html" class="card">
-
-<img src="https://picsum.photos/400/250?random=1" alt="Paris">
-
-<h3>
-Paris 🇫🇷
-</h3>
-
-<p class="stars">
-★★★★★
-</p>
-
-<p>
-Découvrez la ville lumière.
-</p>
-
-</a>
-
-
-
-
-
-<a href="rome.html" class="card">
-
-<img src="https://picsum.photos/400/250?random=2" alt="Rome">
-
-<h3>
-Rome 🇮🇹
-</h3>
-
-<p class="stars">
-★★★★★
-</p>
-
-<p>
-Découvrez la cité éternelle.
-</p>
-
-</a>
-
-
-
-
-
-<div class="card">
-
-<img src="https://picsum.photos/400/250?random=3" alt="Bretagne">
-
-<h3>
-Bretagne 🇫🇷
-</h3>
-
-<p class="stars">
-★★★★☆
-</p>
-
-<p>
-Océan et patrimoine.
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section class="hotels">
-
-
-<h2>
-Hébergements recommandés
-</h2>
-
-
-
-
-<div class="hotel">
-
-
-<img src="https://picsum.photos/300/200?random=4">
-
-
-<div>
-
-
-<h3>
-Hôtel Océan Bleu
-</h3>
-
-
-<p class="rating">
-⭐⭐⭐⭐⭐ 4.8 / 5
-</p>
-
-
-<p>
-📍 Paris, France 🇫🇷
-</p>
-
-
-<p>
-Magnifique hôtel au cœur de Paris.
-</p>
-
-
-<p class="price">
-À partir de 120 € / nuit
-</p>
-
-
-<button>
-Voir les détails
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="hotel">
-
-
-<img src="https://picsum.photos/300/200?random=5">
-
-
-<div>
-
-
-<h3>
-Casa del Viaggiatore
-</h3>
-
-
-<p class="rating">
-⭐⭐⭐⭐☆ 4.5 / 5
-</p>
-
-
-<p>
-📍 Rome, Italie 🇮🇹
-</p>
-
-
-<p>
-Charmant hébergement dans le centre historique de Rome.
-</p>
-
-
-<p class="price">
-À partir de 80 € / nuit
-</p>
-
-
-<button>
-Voir les détails
-</button>
-
-
-</div>
-
-
-</div>
+<div id="listeResultats"></div>
 
 
 
 </section>
-
 
 
 
@@ -295,45 +76,205 @@ Voir les détails
 
 
 
-
-
 <script>
 
 
-function rechercherDestination(event){
+// Récupération de la recherche
 
 
-event.preventDefault();
+let parametre = new URLSearchParams(window.location.search);
 
 
-
-let destination = document
-.getElementById("destinationSearch")
-.value
-.toLowerCase()
-.trim();
+let recherche = parametre.get("destination");
 
 
 
-// Transformation du texte en nom de fichier HTML
+if(recherche){
 
-destination = destination
-.normalize("NFD")
-.replace(/[\u0300-\u036f]/g, "")
-.replace(/\s+/g, "-");
+recherche = recherche.toLowerCase();
 
+}
 
 
-// Ouverture automatique de la page
 
-window.location.href = destination + ".html";
+document.getElementById("villeRecherche").textContent =
+recherche;
+
+
+
+
+
+
+
+// Base des destinations disponibles
+
+
+let destinations = [
+
+
+{
+nom:"Paris",
+pays:"France 🇫🇷",
+image:"https://picsum.photos/500/300?paris",
+description:"Tour Eiffel, Louvre, Montmartre et gastronomie française.",
+page:"paris.html"
+},
+
+
+
+{
+nom:"Rome",
+pays:"Italie 🇮🇹",
+image:"https://picsum.photos/500/300?rome",
+description:"Colisée, Vatican et histoire antique.",
+page:"rome.html"
+},
+
+
+
+{
+nom:"Londres",
+pays:"Royaume-Uni 🇬🇧",
+image:"https://picsum.photos/500/300?london",
+description:"Big Ben, musées et quartiers historiques.",
+page:"londres.html"
+},
+
+
+
+{
+nom:"Tokyo",
+pays:"Japon 🇯🇵",
+image:"https://picsum.photos/500/300?tokyo",
+description:"Tradition japonaise et modernité.",
+page:"tokyo.html"
+},
+
+
+
+{
+nom:"Bretagne",
+pays:"France 🇫🇷",
+image:"https://picsum.photos/500/300?bretagne",
+description:"Océan, villages et paysages sauvages.",
+page:"bretagne.html"
+}
+
+
+];
+
+
+
+
+
+
+
+
+let zone = document.getElementById("listeResultats");
+
+
+let trouve = false;
+
+
+
+
+
+
+destinations.forEach(function(destination){
+
+
+
+if(destination.nom.toLowerCase().includes(recherche)){
+
+
+
+trouve=true;
+
+
+
+zone.innerHTML += `
+
+
+<a class="result-card" href="${destination.page}">
+
+
+<img src="${destination.image}" alt="${destination.nom}">
+
+
+<div>
+
+<h2>
+${destination.nom}
+</h2>
+
+
+<p>
+${destination.pays}
+</p>
+
+
+<p>
+${destination.description}
+</p>
+
+
+<button>
+Voir la destination
+</button>
+
+
+</div>
+
+
+</a>
+
+
+`;
+
+
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+if(!trouve){
+
+
+zone.innerHTML = `
+
+
+<div class="no-result">
+
+
+<h2>
+Aucune destination trouvée
+</h2>
+
+
+<p>
+Essayez Paris, Rome, Londres, Tokyo ou Bretagne.
+</p>
+
+
+</div>
+
+
+`;
+
 
 }
 
 
 
 </script>
-
 
 
 
