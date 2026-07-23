@@ -156,39 +156,21 @@ page:"bretagne.html"
 ];
 
 
-
-
-
-
-
-
 let zone = document.getElementById("listeResultats");
 
 
 let trouve = false;
 
-
-
-
-
-
 destinations.forEach(function(destination){
-
-
 
 if(destination.nom.toLowerCase().includes(recherche)){
 
 
-
 trouve=true;
-
-
 
 zone.innerHTML += `
 
-
 <a class="result-card" href="${destination.page}">
-
 
 <img src="${destination.image}" alt="${destination.nom}">
 
