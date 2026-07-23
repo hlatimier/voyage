@@ -26,11 +26,17 @@
 
 <nav>
 
-<a href="index.html">Accueil</a>
-<a href="#">Hôtels</a>
-<a href="#">Restaurants</a>
-<a href="#">Activités</a>
-<a href="#">Avis</a>
+<a href="index.html">
+Accueil
+</a>
+
+<a href="paris.html">
+Paris
+</a>
+
+<a href="rome.html">
+Rome
+</a>
 
 </nav>
 
@@ -49,7 +55,6 @@ Trouvez votre prochaine aventure
 
 
 
-
 <form class="search-box" onsubmit="rechercherDestination(event)">
 
 
@@ -60,12 +65,11 @@ placeholder="Où voulez-vous aller ?"
 required>
 
 
-<input type="date">
-
 
 <button type="submit">
 Rechercher
 </button>
+
 
 
 </form>
@@ -90,253 +94,35 @@ Destinations populaires
 
 <div class="cards">
 
-
-
 <a href="paris.html" class="card">
-
-<img src="https://picsum.photos/400/250?random=1" alt="Paris">
 
 <h3>
 Paris 🇫🇷
 </h3>
 
-<p class="stars">
-★★★★★
-</p>
-
 <p>
-Découvrez la ville lumière.
+Tour Eiffel, Louvre, Montmartre
 </p>
 
 </a>
 
-
-
-
-
 <a href="rome.html" class="card">
-
-<img src="https://picsum.photos/400/250?random=2" alt="Rome">
 
 <h3>
 Rome 🇮🇹
 </h3>
 
-<p class="stars">
-★★★★★
-</p>
-
 <p>
-Découvrez la cité éternelle.
+Colisée, Vatican, histoire antique
 </p>
 
 </a>
 
-
-
-
-
-<div class="card">
-
-<img src="https://picsum.photos/400/250?random=3" alt="Bretagne">
-
-<h3>
-Bretagne 🇫🇷
-</h3>
-
-<p class="stars">
-★★★★☆
-</p>
-
-<p>
-Océan et patrimoine.
-</p>
-
 </div>
-
-
-
-</div>
-
 
 </section>
 
-
-
-
-
-
-
-
-<section class="hotels">
-
-
-<h2>
-Hébergements recommandés
-</h2>
-
-
-
-
-<div class="hotel">
-
-
-<img src="https://picsum.photos/300/200?random=4">
-
-
-<div>
-
-
-<h3>
-Hôtel Océan Bleu
-</h3>
-
-
-<p class="rating">
-⭐⭐⭐⭐⭐ 4.8 / 5
-</p>
-
-
-<p>
-📍 Paris, France 🇫🇷
-</p>
-
-
-<p>
-Magnifique hôtel au cœur de Paris.
-</p>
-
-
-<p class="price">
-À partir de 120 € / nuit
-</p>
-
-
-<button>
-Voir les détails
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="hotel">
-
-
-<img src="https://picsum.photos/300/200?random=5">
-
-
-<div>
-
-
-<h3>
-Casa del Viaggiatore
-</h3>
-
-
-<p class="rating">
-⭐⭐⭐⭐☆ 4.5 / 5
-</p>
-
-
-<p>
-📍 Rome, Italie 🇮🇹
-</p>
-
-
-<p>
-Charmant hébergement dans le centre historique de Rome.
-</p>
-
-
-<p class="price">
-À partir de 80 € / nuit
-</p>
-
-
-<button>
-Voir les détails
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-<footer>
-
-<p>
-© 2026 Voyage Explorer
-</p>
-
-</footer>
-
-
-
-
-
-
-
-
-
-<script>
-
-
-function rechercherDestination(event){
-
-
-event.preventDefault();
-
-
-
-let destination = document
-.getElementById("destinationSearch")
-.value
-.toLowerCase()
-.trim();
-
-
-
-// Transformation du texte en nom de fichier HTML
-
-destination = destination
-.normalize("NFD")
-.replace(/[\u0300-\u036f]/g, "")
-.replace(/\s+/g, "-");
-
-
-
-// Ouverture automatique de la page
-
-window.location.href = destination + ".html";
-
-}
-
-
-
-</script>
-
-
-
-
+<script src="script.js"></script>
 
 
 </body>
