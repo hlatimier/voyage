@@ -91,14 +91,21 @@ let recherche = parametre.get("destination");
 
 if(recherche){
 
-recherche = recherche.toLowerCase();
+function rechercherDestination(event){
+
+event.preventDefault();
+
+let destination = document
+.getElementById("destinationSearch")
+.value
+.toLowerCase()
+.trim();
+
+
+window.location.href =
+"resultats.html?destination=" + destination;
 
 }
-
-
-
-document.getElementById("villeRecherche").textContent =
-recherche;
 
 
 
