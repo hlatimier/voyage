@@ -1,1 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Résultats de recherche - Voyage Explorer</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🌍 Voyage Explorer
+</div>
+
+<nav>
+
+<a href="index.html">Accueil</a>
+
+<a href="#">Hôtels</a>
+
+<a href="#">Restaurants</a>
+
+<a href="#">Activités</a>
+
+<a href="#">Avis</a>
+
+</nav>
+
+</header>
+
+
+
+<section class="results">
+
+<h1>
+
+Résultats pour :
+
+<span id="villeRecherche"></span>
+
+</h1>
+
+<div id="listeResultats">
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<p>
+
+© 2026 Voyage Explorer
+
+</p>
+
+</footer>
+
+
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const recherche = (params.get("destination") || "")
+.toLowerCase()
+.trim();
+
+document.getElementById("villeRecherche").textContent =
+recherche === "" ? "Toutes les destinations" : recherche;
+
+const destinations = [
+
+{
+
+nom:"Paris",
+
+pays:"France 🇫🇷",
+
+note:"★★★★★ 4.8/5",
+
+description:"Découvrez la Tour Eiffel, le Louvre, Montmartre et les Champs-Élysées.",
+
+image:"https://picsum.photos/600/350?random=20",
+
+page:"paris.html"
+
+},
+
+{
+
+nom:"Rome",
+
+pays:"Italie 🇮🇹",
+
+note:"★★★★★ 4.7/5",
+
+description:"Découvrez le Colisée, le Vatican et la Fontaine de Trevi.",
+
+image:"https://picsum.photos/600/350?random=30",
+
+page:"rome.html"
+
+},
+
+{
+
+nom:"Londres",
+
+pays:"Royaume-Uni 🇬🇧",
+
+note:"★★★★☆ 4.6/5",
+
+description:"Big Ben, Tower Bridge et Buckingham Palace.",
+
+image:"https://picsum.photos/600/350?random=40",
+
+page:"londres.html"
+
+},
+
+{
+
+nom:"Tokyo",
+
+pays:"Japon 🇯🇵",
+
+note:"★★★★★ 4.9/5",
+
+description:"Temples, quartiers futuristes et gastronomie japonaise.",
+
+image:"https://picsum.photos/600/350?random=50",
+
+page:"tokyo.html"
+
+},
+
+{
+
+nom:"New York",
+
+pays:"États-Unis 🇺🇸",
+
+note:"★★★★★ 4.8/5",
+
+description:"Times Square, Central Park et Statue de la Liberté.",
+
+image:"https://picsum.photos/600/350?random=60",
+
+page:"new-york.html"
+
+},
+
+{
+
+nom:"Bretagne",
+
+pays:"France 🇫🇷",
+
+note:"★★★★☆ 4.7/5",
+
+description:"Océan, villages de caractère et patrimoine breton.",
+
+image:"https://picsum.photos/600/350?random=70",
+
+page:"bretagne.html"
+
+}
+
+];
+
+const zone = document.getElementById("listeResultats");
+
+let resultatTrouve = false;
+
+destinations.forEach(function(destination){
+
+if(
+
+recherche === "" ||
+
+destination.nom.toLowerCase().includes(recherche)
+
+){
+
+resultatTrouve = true;
+
+zone.innerHTML += `
+
+<a href="${destination.page}" class="result-card">
+
+<img src="${destination.image}" alt="${destination.nom}">
+
+<div class="result-info">
+
+<h2>${destination.nom}</h2>
+
+<p><strong>${destination.pays}</strong></p>
+
+<p class="stars">${destination.note}</p>
+
+<p>${destination.description}</p>
+
+<button>
+
+Voir la destination
+
+</button>
+
+</div>
+
+</a>
+
+`;
+
+}
+
+});
+
+if(!resultatTrouve){
+
+zone.innerHTML = `
+
+<div class="no-result">
+
+<h2>
+
+Aucune destination trouvée
+
+</h2>
+
+<p>
+
+Essayez par exemple :
+
+<strong>
+
+Paris, Rome, Londres, Tokyo ou New York
+
+</strong>
+
+</p>
+
+<p>
+
+Ou créez simplement une nouvelle page HTML portant le nom de la ville.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+
+</html>
